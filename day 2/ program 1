@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+void readPatient(char* p_name, char* p_ward, int* p_days) {
+    printf("Enter Patient's name: ");
+    scanf("%s", p_name);
+    printf("Enter Ward Type (G/S/P): ");
+    scanf(" %c", p_ward);
+    printf("Enter Number of Days: ");
+    scanf("%d", p_days);
+}
+
+float calculateBill(char wardType, int days) {
+    int charge;
+    float bill;
+
+    switch (wardType) {
+        case 'G':
+        case 'g':
+            charge = 1000;
+            break;
+        case 'S':
+        case 's':
+            charge = 2000;
+            break;
+        case 'P':
+        case 'p':
+            charge = 5000;
+            break;
+        default:
+            printf("Invalid Choice\n");
+            return 0;
+    }
+    bill = charge * days;
+    return bill;
+}
+
+void printBill(char *name, float bill, float discount, float gross_bill) {
+    printf("Patient: %s\n", name);
+    printf("Total Bill Before Discount: %.2f\n", bill);
+    printf("Discount Applied: %.2f\n", discount);
+    printf("Final Bill Amount: %.2f\n", gross_bill);
+}
+
+int main() {
+    int days;
+    char ward;
+    char name[100];
+    float bill, discount = 0.0, gross_bill;
+
+    readPatient(name, &ward, &days);
+    bill = calculateBill(ward, days);
+
+    if (days > 7) {
+        discount = bill * 0.05;
+    }
+    gross_bill = bill - discount;
+
+    printBill(name, bill, discount, gross_bill);
+    return 0;
+}
+
