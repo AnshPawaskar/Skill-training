@@ -50,3 +50,4 @@ void sortStudents(int totalMarks[], int n) {
         }
     }
 }
+
