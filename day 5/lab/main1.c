@@ -17,7 +17,7 @@ int main(){
 
 void manageStudents(){
     //init
-    int numberOfStudents;
+    int n;
     Student students[100];
     int choice;
     do{
@@ -32,16 +32,16 @@ void manageStudents(){
         switch(choice){
             case 1:{
                 printf("Enter number of students: ");
-                scanf("%d", &numberOfStudents);
-                readStudentDetails(numberOfStudents, students);
-                calculateTotalAndAverage(numberOfStudents, students);
-                createfile(numberOfStudents, students);
+                scanf("%d", &n);
+                readStudentDetails(n, students);
+                calculateTotalAndAverage(n, students);
+                createfile(n, students);
             } break;
             case 2: {
-                displayStudentDetails(numberOfStudents, students);
+                displayStudentDetails(n, students);
             } break;
             case 3: {
-                displayStudentDetailsUsingStack(numberOfStudents, students);
+                displayStudentDetailsUsingStack(n, students);
             } break;
             case 4:{
                 printf("Thank you for using the App :)...\n");
