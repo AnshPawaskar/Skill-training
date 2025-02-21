@@ -58,4 +58,3 @@ int main() {
     printBill(name, bill, discount, gross_bill);
     return 0;
 }
-
